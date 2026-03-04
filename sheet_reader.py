@@ -2,7 +2,6 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 def fetch_emails():
-
     scope = [
         "https://spreadsheets.google.com/feeds",
         "https://www.googleapis.com/auth/drive"
@@ -21,7 +20,8 @@ def fetch_emails():
     emails = []
 
     for row in records:
-        if emailssss in row:
-            emails.append(row[emailssss])
+        email = row.get("emailssss")
+        if email:
+            emails.append(email.strip())
 
     return list(set(emails))
